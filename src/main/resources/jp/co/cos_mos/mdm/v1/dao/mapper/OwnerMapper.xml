@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.cos_mos.mdm.v1.dao.mapper.OwnerMapper">
+
+<select id="select" parameterType="Long" resultType="Owner">
+	select 
+	    id,
+	    name as name,
+	    inactive_ts as inactiveTs,
+	    last_update_ts as lastUpdateTs,
+	    last_update_user as lastUpdateUser,
+	    last_update_tx_id as lastUpdateTxId 
+	  from owner 
+	 where id = #{id}
+</select>
+
+<select id="selectAll" resultType="Owner">
+	select 
+	    id,
+	    name as name,
+	    inactive_ts as inactiveTs,
+	    last_update_ts as lastUpdateTs,
+	    last_update_user as lastUpdateUser,
+	    last_update_tx_id as lastUpdateTxId 
+	  from owner 
+</select>
+
+<insert id="insert" parameterType="Owner">
+	INSERT INTO owner (
+		id, name, inactive_ts, last_update_ts, last_update_user, last_update_tx_id) VALUES 
+		(#{id},#{name},#{inactiveTs},CURRENT_TIMESTAMP(6),#{lastUpdateUser},#{lastUpdateTxId})
+</insert>
+
+<update id="update" parameterType="Owner">
+	UPDATE owner SET 
+		name=#{name},
+		inactive_ts=#{inactiveTs},
+		last_update_ts=CURRENT_TIMESTAMP(6),
+		last_update_user=#{lastUpdateUser},
+		last_update_tx_id=#{lastUpdateTxId} 
+	WHERE id=#{id} 
+	  AND last_update_ts=#{lastUpdateTs}
+</update>
+
+<update id="inactive" parameterType="Owner">
+	UPDATE owner SET 
+		inactive_ts=CURRENT_TIMESTAMP(6),
+		last_update_ts=CURRENT_TIMESTAMP(6),
+		last_update_user=#{lastUpdateUser},
+		last_update_tx_id=#{lastUpdateTxId} 
+	WHERE id=#{id} 
+	  AND last_update_ts=#{lastUpdateTs}
+</update>
+
+<delete id="delete" parameterType="Owner">
+	DELETE FROM owner
+	 WHERE id=#{id} 
+</delete>
+
+</mapper>

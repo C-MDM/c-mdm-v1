@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Code"
+			type="jp.co.cos_mos.mdm.v1.dao.entity.Code" />
+		<typeAlias alias="CodeCriteria"
+			type="jp.co.cos_mos.mdm.v1.dao.entity.CodeCriteria" />
+
+		<typeAlias alias="CodeCategory"
+			type="jp.co.cos_mos.mdm.v1.dao.entity.CodeCategory" />
+		<typeAlias alias="CodeCategoryCriteria"
+			type="jp.co.cos_mos.mdm.v1.dao.entity.CodeCategoryCriteria" />
+
+		<typeAlias alias="Owner"
+			type="jp.co.cos_mos.mdm.v1.dao.entity.Owner" />
+
+	</typeAliases>
+
+</configuration>

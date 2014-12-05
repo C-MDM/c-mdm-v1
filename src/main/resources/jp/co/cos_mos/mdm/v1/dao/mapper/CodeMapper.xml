@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.cos_mos.mdm.v1.dao.mapper.CodeMapper">
+
+<select id="select" parameterType="Long" resultType="Code">
+	SELECT
+		id as id,
+		owner_id as ownerId,
+		category_id as categoryId,
+		code as code, 
+		name as name,
+		start_date as startDate,
+		end_date as endDate,
+		last_update_ts as lastUpdateTs,
+		last_update_user as lastUpdateUser,
+		last_update_tx_id as lastUpdateTxId
+	  FROM code 
+	 WHERE id = #{id}
+</select>
+
+<insert id="insert" parameterType="Code">
+	INSERT INTO code (id, owner_id, category_id, code, name, start_date, end_date, last_update_ts, last_update_user, last_update_tx_id) VALUES 
+	(#{id}, #{ownerId}, #{categoryId}, #{code}, #{name}, #{startDate}, #{endDate}, #{lastUpdateTs}, #{lastUpdateUser}, #{lastUpdateTxId})
+</insert>
+
+<update id="update" parameterType="Code">
+	UPDATE code SET 
+		owner_id=#{ownerId},
+		category_id=#{categoryId},
+		code=#{code},
+		name=#{name},
+		start_date=#{startDate},
+		end_date=#{endDate},
+		last_update_ts=CURRENT_TIMESTAMP(6),
+		last_update_user=#{lastUpdateUser},
+		last_update_tx_id=#{lastUpdateTxId}
+	 WHERE id = #{id}
+	   AND last_update_ts = #{lastUpdateTs}
+</update>
+
+<delete id="delete" parameterType="Code">
+	DELETE FROM code
+	 WHERE id=#{id}
+</delete>
+
+<select id="selectActiveCode" parameterType="CodeCriteria" resultType="Code">
+	SELECT
+		id as id,
+		owner_id as ownerId,
+		category_id as categoryId,
+		code as code, 
+		name as name,
+		start_date as startDate,
+		end_date as endDate,
+		last_update_ts as lastUpdateTs,
+		last_update_user as lastUpdateUser,
+		last_update_tx_id as lastUpdateTxId
+	  FROM code 
+	 WHERE owner_id = #{ownerId} 
+	   AND category_id = #{categoryId}
+	   AND code = #{code}
+	   AND end_date = '99999999'
+</select>
+
+<select id="search" parameterType="CodeCriteria" resultType="Code">
+	SELECT
+		id as id,
+		owner_id as ownerId,
+		category_id as categoryId,
+		code as code, 
+		name as name,
+		start_date as startDate,
+		end_date as endDate,
+		last_update_ts as lastUpdateTs,
+		last_update_user as lastUpdateUser,
+		last_update_tx_id as lastUpdateTxId
+	  FROM code 
+	 WHERE owner_id = #{ownerId} 
+	   AND category_id = #{categoryId}
+	<if test="code != null">
+		AND code = #{code}
+	</if>
+	<if test="baseDate != null">
+		AND #{baseDate} between start_date AND end_date
+	</if>
+	<choose>
+		<when test="sort == 0">
+			ORDER BY id
+		</when>
+		<when test="sort == 1">
+			ORDER BY owner_id, category_id, code, start_date, end_date
+		</when>
+		<when test="sort == 2">
+			ORDER BY owner_id, category_id, start_date, code
+		</when>
+		<when test="sort == 3">
+			ORDER BY owner_id, category_id, last_update_ts
+		</when>
+	</choose>
+</select>
+
+</mapper>
