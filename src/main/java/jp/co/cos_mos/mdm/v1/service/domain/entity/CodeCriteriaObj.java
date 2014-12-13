@@ -4,12 +4,19 @@ import java.io.Serializable;
 
 public class CodeCriteriaObj implements Serializable{
 	
+	private String id;
 	private String ownerId;
 	private String categoryId;
 	private String code;
 	private String sort;
 	private String baseDate;
 	
+	public String getId() {
+		return this.id;
+	}
+	public void setId(String id) {
+		this.ownerId = id;
+	}
 	public String getOwnerId() {
 		return ownerId;
 	}
