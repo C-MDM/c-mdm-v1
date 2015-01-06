@@ -10,6 +10,7 @@ public class CodeCriteriaObj implements Serializable{
 	private String code;
 	private String sort;
 	private String baseDate;
+	private String targetDate;
 	
 	public String getId() {
 		return this.id;
@@ -47,5 +48,10 @@ public class CodeCriteriaObj implements Serializable{
 	public void setBaseDate(String baseDate) {
 		this.baseDate = baseDate;
 	}
-
+	public String getTargetDate() {
+		return targetDate;
+	}
+	public void setTargetDate(String targetDate) {
+		this.targetDate = targetDate;
+	}
 }
