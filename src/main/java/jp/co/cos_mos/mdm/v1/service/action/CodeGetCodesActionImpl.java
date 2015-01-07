@@ -13,6 +13,7 @@ import jp.co.cos_mos.mdm.v1.service.domain.CodeServiceResponse;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeCriteriaObj;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeObj;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +35,11 @@ public class CodeGetCodesActionImpl implements CodeGetCodesAction {
 		if (result.getStatus() != Status.SUCCESS) {
 			response.setResult(result);
 			return response;
+		}
+		
+		// sortキーが省略されていた場合は1を設定
+		if (criteria.getSort().isEmpty()) {
+			criteria.setSort("1");
 		}
 		
 		// 入力値をDaoクラスに渡す形式に変換
@@ -72,7 +78,7 @@ public class CodeGetCodesActionImpl implements CodeGetCodesAction {
 		response.setResult(result);
 		response.setOutput(output);
 		
-		return null;
+		return response;
 	}
 	
 	/**
@@ -87,6 +93,24 @@ public class CodeGetCodesActionImpl implements CodeGetCodesAction {
 		
 		// 入力値がない場合エラー
 		if (criteria == null) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
+		}
+		
+		// ownerIDが入力されていないもしくは数値ではない場合エラー
+		if (criteria.getOwnerId().isEmpty() || !StringUtils.isNumeric(criteria.getOwnerId())) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
+		}
+		
+		// getCategoryIdが入力されていないもしくは数値ではない場合エラー
+		if (criteria.getCategoryId().isEmpty() || !StringUtils.isNumeric(criteria.getCategoryId())) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
+		}
+		
+		// sortが数値ではない場合エラー
+		if (!StringUtils.isNumeric(criteria.getSort())) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
 			return result;
 		}
