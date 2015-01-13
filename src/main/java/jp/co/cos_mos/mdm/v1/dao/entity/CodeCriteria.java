@@ -9,8 +9,7 @@ public class CodeCriteria implements Serializable {
 	private String code;
 	private int sort;
 	private String baseDate;
-	private String yDate;
-	private String xDate;
+	private String targetDate;
 	
 	public Long getOwnerId() {
 		return ownerId;
@@ -42,19 +41,10 @@ public class CodeCriteria implements Serializable {
 	public void setBaseDate(String baseDate) {
 		this.baseDate = baseDate;
 	}
-	public String getyDate() {
-		return yDate;
+	public String getTargetDate() {
+		return targetDate;
 	}
-	public void setyDate(String yDate) {
-		this.yDate = yDate;
+	public void setTargetDate(String targetDate) {
+		this.targetDate = targetDate;
 	}
-	public String getxDate() {
-		return xDate;
-	}
-	public void setxDate(String xDate) {
-		this.xDate = xDate;
-	}
-
-	
-	
 }
