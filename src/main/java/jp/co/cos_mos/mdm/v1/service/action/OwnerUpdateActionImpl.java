@@ -15,9 +15,11 @@ import jp.co.cos_mos.mdm.v1.service.domain.entity.OwnerObj;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class OwnerUpdateActionImpl implements OwnerUpdateAction {
 	
 	@Autowired
