@@ -4,6 +4,7 @@ import java.util.List;
 
 import jp.co.cos_mos.mdm.core.service.domain.entity.Control;
 import jp.co.cos_mos.mdm.core.service.domain.entity.Result;
+import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeDiffResultObj;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeObj;
 
 public class CodeServiceResponse {
@@ -12,6 +13,7 @@ public class CodeServiceResponse {
 	private Result result;
 	private List<CodeObj> output;
 	private int count;
+	private List<CodeDiffResultObj> diffResultList;
 	
 	public Control getControl() {
 		return control;
@@ -36,6 +38,12 @@ public class CodeServiceResponse {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	public List<CodeDiffResultObj> getDiffResultList() {
+		return diffResultList;
+	}
+	public void setDiffResultList(List<CodeDiffResultObj> diffResultList) {
+		this.diffResultList = diffResultList;
 	}
 
 	
