@@ -3,12 +3,13 @@ package jp.co.cos_mos.mdm.v1.service.domain;
 import java.io.Serializable;
 
 import jp.co.cos_mos.mdm.core.service.domain.entity.Control;
+import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeCategoryCriteriaObj;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeCategoryObj;
 
 public class CodeCategoryServiceRequest implements Serializable {
 
 	private Control control;
-	private CodeCategoryServiceCriteria criteria;
+	private CodeCategoryCriteriaObj criteria;
 	private CodeCategoryObj input;
 
 	public Control getControl() {
@@ -17,10 +18,10 @@ public class CodeCategoryServiceRequest implements Serializable {
 	public void setControl(Control control) {
 		this.control = control;
 	}
-	public CodeCategoryServiceCriteria getCriteria() {
+	public CodeCategoryCriteriaObj getCriteria() {
 		return criteria;
 	}
-	public void setCriteria(CodeCategoryServiceCriteria criteria) {
+	public void setCriteria(CodeCategoryCriteriaObj criteria) {
 		this.criteria = criteria;
 	}
 	public CodeCategoryObj getInput() {

@@ -4,7 +4,7 @@ import jp.co.cos_mos.mdm.core.service.domain.entity.Control;
 import jp.co.cos_mos.mdm.v1.service.domain.CodeServiceResponse;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeCriteriaObj;
 
-public interface CodeGetDifference {
+public interface CodeGetDifferenceAction {
 
 	/**
 	 * 

@@ -16,7 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:serviceContext.xml")
+@ContextConfiguration(locations="classpath:rest-servlet.xml")
 public class CodeCategoryMapperTest {
 
 	@Autowired
