@@ -47,7 +47,6 @@ public class CodeGetDifferenceActionImpl implements CodeGetDifferenceAction {
 		codeCriteria.setOwnerId(Long.parseLong(criteria.getOwnerId()));
 		codeCriteria.setCategoryId(Long.parseLong(criteria.getCategoryId()));
 		codeCriteria.setBaseDate(criteria.getBaseDate());
-		codeCriteria.setSort(Integer.parseInt(criteria.getSort()));
 		codeCriteria.setTargetDate(criteria.getTargetDate());
 		
 		// baseDateを元に検索
@@ -89,31 +88,8 @@ public class CodeGetDifferenceActionImpl implements CodeGetDifferenceAction {
 			
 			if (bCode.compareTo(tCode) == 0) {
 				
-				boolean updateFlg = false;
-				
-				if (baseCode.getId() != targetCode.getId()) {
-					updateFlg = true;
-				} else if (baseCode.getOwnerId() != targetCode.getOwnerId()) {
-					updateFlg = true;
-				} else if (baseCode.getCategoryId() != targetCode.getCategoryId()) {
-					updateFlg = true;
-				} else if (StringUtils.isNotEmpty(baseCode.getName()) && !baseCode.getName().equals(targetCode.getName())) {
-					updateFlg = true;
-				} else if (StringUtils.isNotEmpty(baseCode.getStartDate()) && !baseCode.getStartDate().equals(targetCode.getStartDate())) {
-					updateFlg = true;
-				} else if (StringUtils.isNotEmpty(baseCode.getEndDate()) && !baseCode.getEndDate().equals(targetCode.getEndDate())) {
-					updateFlg = true;
-				} else if (baseCode.getLastUpdateTs() != targetCode.getLastUpdateTs()) {
-					updateFlg = true;
-				} else if (StringUtils.isNotEmpty(baseCode.getLastUpdateUser())  && !baseCode.getLastUpdateUser().equals(targetCode.getLastUpdateUser())) {
-					updateFlg = true;
-				} else if (baseCode.getLastUpdateTxId() != targetCode.getLastUpdateTxId()) {
-					updateFlg = true;
-				} else {
-				}
-				
 				// 更新があった場合
-				if (updateFlg) {
+				if (StringUtils.isNotEmpty(baseCode.getName()) && !baseCode.getName().equals(targetCode.getName())) {
 					codeDiffResultObj.setBaseCode(codeToCodeObj(baseCode));
 					codeDiffResultObj.setTargetCode(codeToCodeObj(targetCode));
 					codeDiffResultObj.setDiffStatus(DIFF_STATS_UPDATE);
@@ -163,6 +139,16 @@ public class CodeGetDifferenceActionImpl implements CodeGetDifferenceAction {
 		}
 		
 		if (criteria.getTargetDate() == null) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
+		}
+		
+		if (criteria.getOwnerId() == null && StringUtils.isNumeric(criteria.getOwnerId())) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
+		}
+		
+		if (criteria.getCategoryId() == null && StringUtils.isNumeric(criteria.getCategoryId())) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
 			return result;
 		}
