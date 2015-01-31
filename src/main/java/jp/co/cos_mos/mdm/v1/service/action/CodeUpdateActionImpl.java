@@ -14,12 +14,16 @@ import jp.co.cos_mos.mdm.v1.service.domain.CodeServiceResponse;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeObj;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CodeUpdateActionImpl implements CodeUpdateAction {
 	@Autowired
 	private CodeMapper codeMapper;
 
-	@Override
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public CodeServiceResponse perform(Control control, CodeObj input) {
 		
 		CodeServiceResponse response = new CodeServiceResponse();
@@ -35,10 +39,10 @@ public class CodeUpdateActionImpl implements CodeUpdateAction {
 			
 			// 更新する値をセット
 			Code code = new Code();
+			code.setId(Long.valueOf(input.getId()));
+			code.setOwnerId(Long.valueOf(input.getOwnerId()));
 			code.setCategoryId(Long.valueOf(input.getCategoryId()));
 			code.setCode(input.getCode());
-			code.setOwnerId(Long.valueOf(input.getOwnerId()));
-			code.setId(Long.valueOf(input.getId()));
 			code.setName(input.getName());
 			code.setStartDate(input.getStartDate());
 			code.setEndDate(input.getEndDate());
@@ -56,10 +60,10 @@ public class CodeUpdateActionImpl implements CodeUpdateAction {
 			code = codeMapper.select(Long.valueOf(input.getId()));
 			CodeObj codeObj = new CodeObj();
 			
-			codeObj.setCode(code.getCode());
-			codeObj.setCategoryId(String.valueOf(code.getCategoryId()));
 			codeObj.setId(String.valueOf(code.getId()));
 			codeObj.setOwnerId(String.valueOf(code.getOwnerId()));
+			codeObj.setCategoryId(String.valueOf(code.getCategoryId()));
+			codeObj.setCode(code.getCode());
 			codeObj.setName(code.getName());
 			codeObj.setStartDate(code.getStartDate());
 			codeObj.setEndDate(code.getEndDate());
