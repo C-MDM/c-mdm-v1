@@ -41,6 +41,14 @@ public class CodeCategoryUpdateActionTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
+	/**
+	 * <p><b>更新処理（正常系）</b></p>
+	 * すべての項目に正しい値が入力されているときに<br>
+	 * 各項目が入力値で更新されていることを確認する。<br>
+	 * 
+	 * 入力値：各項目<br>
+	 * 戻り値：ステータスがSUCCESS
+	 */
 	@Test
 	public void testParform_SUCCESS001() {
 		Long id = 1L;
@@ -83,7 +91,14 @@ public class CodeCategoryUpdateActionTest {
 		assertFalse(response.getOutput().get(0).getLastUpdateTs().equals(input.getLastUpdateTs()));
 		
 	}
-
+	
+	/**
+	 * <p><b>更新処理（異常系）</b></p>
+	 * 更新失敗した時にEXCEPTIONが発生することを確認する<br>
+	 * 
+	 * 入力値：各項目<br>
+	 * 戻り値：ステータスがEXCEPTION_CONFLICT<br>
+	 */
 	@Test
 	public void testParform_EXCEPTION_CONFLICT001() {
 		Long id = 1L;
@@ -107,6 +122,13 @@ public class CodeCategoryUpdateActionTest {
 		}
 	}
 	
+	/**
+	 * <p><b>入力チェック（正常系）</b></p>
+	 * 入力チェックでinputがnullの場合エラーになることを確認する<br>
+	 * 
+	 * 入力値：なし<br>
+	 * 戻り値：ステータスがBAD_REQUEST_VALUE<br>
+	 */
 	@Test
 	public void testParform_BAT_REQUEST_VALUE001() {
 		CodeCategoryServiceResponse response = target.perform(control, null);
@@ -117,7 +139,13 @@ public class CodeCategoryUpdateActionTest {
 		assertTrue(response.getOutput() == null);
 	}
 
-	
+	/**
+	 * <p><b>入力チェック（正常系）</b></p>
+	 * 入力チェックでnameがnullの場合エラーになることを確認する<br>
+	 * 
+	 * 入力値：nameのみnull<br>
+	 * 戻り値：ステータスがBAD_REQUEST_VALUE<br>
+	 */
 	@Test
 	public void testParform_BAT_REQUEST_VALUE002() {
 		Long id = 1L;
@@ -139,7 +167,14 @@ public class CodeCategoryUpdateActionTest {
 		assertTrue(response.getOutput() == null);
 		
 	}
-	
+
+	/**
+	 * <p><b>入力チェック（正常系）</b></p>
+	 * 入力チェックでnameが空の場合エラーになることを確認する<br>
+	 * 
+	 * 入力値：nameのみ空<br>
+	 * 戻り値：ステータスがBAD_REQUEST_VALUE<br>
+	 */
 	@Test
 	public void testParform_BAT_REQUEST_VALUE003() {
 		
