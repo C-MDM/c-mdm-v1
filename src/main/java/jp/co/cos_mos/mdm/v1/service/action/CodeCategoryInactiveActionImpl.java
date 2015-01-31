@@ -94,7 +94,7 @@ public class CodeCategoryInactiveActionImpl implements
 			return result;
 		}
 
-		if (StringUtils.isEmpty(input.getId()) || !StringUtils.isNumeric(input.getId())) {
+		if (StringUtils.isEmpty(input.getId())) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
 			return result;
 		}

@@ -67,6 +67,7 @@ public class CodeDeleteActionImpl implements CodeDeleteAction {
 
 		if (input == null) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
+			return result;
 		}
 
 		if (StringUtils.isEmpty(input.getId()) || !StringUtils.isNumeric(input.getId())) {
