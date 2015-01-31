@@ -13,6 +13,7 @@ import jp.co.cos_mos.mdm.v1.dao.mapper.CodeMapper;
 import jp.co.cos_mos.mdm.v1.service.domain.CodeServiceResponse;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeObj;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -81,12 +82,16 @@ public class CodeUpdateActionImpl implements CodeUpdateAction {
 	private Result validate(CodeObj input) {
 		Result result = new Result();
 		
-		// nameのチェック
-		if ("".equals(input.getName()) ||  input.getName() == null) {
+		if (input == null) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
-		} else {
-			result.setStatus(Status.SUCCESS);
+			return result;
 		}
+		
+		// nameのチェック
+		if (StringUtils.isEmpty(input.getName())) {
+			result.setStatus(Status.BAD_REQUEST_VALUE);
+		}
+		
 		return result;
 		
 	}
