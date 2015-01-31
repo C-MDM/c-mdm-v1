@@ -42,18 +42,18 @@ public class CodeCategoryInactiveActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive001_success</b></p>
-	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br/>
-	 * 入力値：<br/>
-	 * ownerId = 1L <br/>
-	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br/>
-	 * 戻り値：<br/>
-	 * result.status = success <br/>
-	 * output.size == 1 <br/>
-	 * output.id == ownerId <br/>
-	 * output.lastUpdateUser == control.requesterName <br/>
-	 * output.lastUpdateTxId == control.TransactionId <br/>
-	 * output.inactiveTs != null <br/>
-	 * output.lastUpdateTs != nulll <br/>
+	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br>
+	 * 入力値：<br>
+	 * ownerId = 1L <br>
+	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br>
+	 * 戻り値：<br>
+	 * result.status = success <br>
+	 * output.size == 1 <br>
+	 * output.id == ownerId <br>
+	 * output.lastUpdateUser == control.requesterName <br>
+	 * output.lastUpdateTxId == control.TransactionId <br>
+	 * output.inactiveTs != null <br>
+	 * output.lastUpdateTs != nulll <br>
 	 */
 	@Test
 	public void testPerform_SUCCESS001() {
@@ -95,11 +95,11 @@ public class CodeCategoryInactiveActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive001_failure</b></p>
-	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * null <br/>
-	 * 戻り値：<br/>
-	 * BAD_REQUEST_VALUE <br/>
+	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * null <br>
+	 * 戻り値：<br>
+	 * BAD_REQUEST_VALUE <br>
 	 */
 	@Test
 	public void testPerform_FAILURE001() {
@@ -134,12 +134,12 @@ public class CodeCategoryInactiveActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive002_failure</b></p>
-	 * input.idがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * id = null <br/>
-	 * lastUpdateTs = "2015-01--01 00:00:00.000000" <br/>
-	 * 戻り値：<br/>
-	 * BAD_REQUEST_VALUE <br/>
+	 * input.idがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * id = null <br>
+	 * lastUpdateTs = "2015-01--01 00:00:00.000000" <br>
+	 * 戻り値：<br>
+	 * BAD_REQUEST_VALUE <br>
 	 */
 	@Test
 	public void testPerform_FAILURE002() {
@@ -174,12 +174,12 @@ public class CodeCategoryInactiveActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive003_failure</b></p>
-	 * input.lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * id = 1L <br/>
-	 * lastUpdateTs = null <br/>
-	 * 戻り値：<br/>
-	 * BAD_REQUEST_VALUE <br/>
+	 * input.lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * id = 1L <br>
+	 * lastUpdateTs = null <br>
+	 * 戻り値：<br>
+	 * BAD_REQUEST_VALUE <br>
 	 */
 	@Test
 	public void testPerform_FAILURE003() {
@@ -213,12 +213,12 @@ public class CodeCategoryInactiveActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive004_failure</b></p>
-	 * 無効にする処理を失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * ownerId = 1L <br/>
-	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br/>
-	 * 戻り値：<br/>
-	 * result.status = success <br/>
+	 * 無効にする処理を失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * ownerId = 1L <br>
+	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br>
+	 * 戻り値：<br>
+	 * result.status = success <br>
 	 */
 	@Test
 	public void testPerform_FAILURE004() {
