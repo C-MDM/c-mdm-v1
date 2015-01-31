@@ -55,6 +55,7 @@ public class CodeGetCodesActionImpl implements CodeGetCodesAction {
 		// 検索結果がない場合ステータスを設定
 		if (selectCodes.size() == 0) {
 			result.setStatus(Status.DATA_NOT_FOUND);
+			response.setResult(result);
 			return response;
 		}
 		
