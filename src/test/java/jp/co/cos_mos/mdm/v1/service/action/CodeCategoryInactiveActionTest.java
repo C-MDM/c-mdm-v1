@@ -41,7 +41,7 @@ public class CodeCategoryInactiveActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive001_success <br/>
+	 * <p><b>CodeCategoryInactive001_success</b></p>
 	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br/>
 	 * 入力値：<br/>
 	 * ownerId = 1L <br/>
@@ -56,7 +56,7 @@ public class CodeCategoryInactiveActionTest {
 	 * output.lastUpdateTs != nulll <br/>
 	 */
 	@Test
-	public void testPerfofrm_SUCCESS001() {
+	public void testPerform_SUCCESS001() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
@@ -94,7 +94,7 @@ public class CodeCategoryInactiveActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive001_failure <br/>
+	 * <p><b>CodeCategoryInactive001_failure</b></p>
 	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * null <br/>
@@ -102,7 +102,7 @@ public class CodeCategoryInactiveActionTest {
 	 * BAD_REQUEST_VALUE <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE001() {
+	public void testPerform_FAILURE001() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
@@ -133,7 +133,7 @@ public class CodeCategoryInactiveActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive002_failure <br/>
+	 * <p><b>CodeCategoryInactive002_failure</b></p>
 	 * input.idがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * id = null <br/>
@@ -142,7 +142,7 @@ public class CodeCategoryInactiveActionTest {
 	 * BAD_REQUEST_VALUE <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE002() {
+	public void testPerform_FAILURE002() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
@@ -173,7 +173,7 @@ public class CodeCategoryInactiveActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive003_failure <br/>
+	 * <p><b>CodeCategoryInactive003_failure</b></p>
 	 * input.lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * id = 1L <br/>
@@ -182,9 +182,8 @@ public class CodeCategoryInactiveActionTest {
 	 * BAD_REQUEST_VALUE <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE003() {
+	public void testPerform_FAILURE003() {
 		Long ownerId = 1L;
-		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
 		input = new CodeCategoryObj();
 		input.setId(String.valueOf(ownerId));
@@ -213,7 +212,7 @@ public class CodeCategoryInactiveActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive004_failure <br/>
+	 * <p><b>CodeCategoryInactive004_failure</b></p>
 	 * 無効にする処理を失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * ownerId = 1L <br/>
@@ -222,7 +221,7 @@ public class CodeCategoryInactiveActionTest {
 	 * result.status = success <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE004() {
+	public void testPerform_FAILURE004() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
