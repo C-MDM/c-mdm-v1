@@ -14,12 +14,16 @@ import jp.co.cos_mos.mdm.v1.service.domain.CodeCategoryServiceResponse;
 import jp.co.cos_mos.mdm.v1.service.domain.entity.CodeCategoryObj;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CodeCategoryUpdateActionImpl implements CodeCategoryUpdateAction {
 	@Autowired
 	private CodeCategoryMapper codeCategoryMappar;
 
-	@Override
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public CodeCategoryServiceResponse perform(Control control,
 			CodeCategoryObj input) {
 		
@@ -37,12 +41,12 @@ public class CodeCategoryUpdateActionImpl implements CodeCategoryUpdateAction {
 			// 更新する値をセット
 			CodeCategory codeCategory = new CodeCategory();
 			codeCategory.setId(Long.valueOf(input.getId()));
-			codeCategory.setName(input.getName());
 			codeCategory.setOwnerId(Long.valueOf(input.getOwnerId()));
+			codeCategory.setName(input.getName());
+			codeCategory.setInactiveTs(Timestamp.valueOf(input.getInactiveTs()));
 			codeCategory.setLastUpdateTs(Timestamp.valueOf(input.getLastUpdateTs()));
 			codeCategory.setLastUpdateUser(control.getRequesterName());
 			codeCategory.setLastUpdateTxId(control.getTransactionId());
-			codeCategory.setInactiveTs(Timestamp.valueOf(input.getInactiveTs()));
 			
 			// 更新実施
 			if (codeCategoryMappar.update(codeCategory) == 0) {
@@ -55,12 +59,12 @@ public class CodeCategoryUpdateActionImpl implements CodeCategoryUpdateAction {
 			CodeCategoryObj codeCategoryObj = new CodeCategoryObj();
 			
 			codeCategoryObj.setId(String.valueOf(codeCategory.getId()));
-			codeCategoryObj.setName(codeCategory.getName());
 			codeCategoryObj.setOwnerId(String.valueOf(codeCategory.getOwnerId()));
+			codeCategoryObj.setName(codeCategory.getName());
+			codeCategoryObj.setInactiveTs(String.valueOf(codeCategory.getInactiveTs()));
 			codeCategoryObj.setLastUpdateTs(String.valueOf(codeCategory.getLastUpdateTs()));
 			codeCategoryObj.setLastUpdateUser(codeCategory.getLastUpdateUser());
 			codeCategoryObj.setLastUpdateTxId(String.valueOf(codeCategory.getLastUpdateTxId()));
-			codeCategoryObj.setInactiveTs(String.valueOf(codeCategory.getInactiveTs()));
 			codeCategoryObjList.add(codeCategoryObj);
 		}
 		
