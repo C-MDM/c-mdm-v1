@@ -39,7 +39,7 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive001_success <br/>
+	 * <p><b>CodeCategoryInactive001_success</b></p>
 	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br/>
 	 * 入力値：<br/>
 	 * ownerId = 1L <br/>
@@ -51,7 +51,7 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_SUCCESS001() {
+	public void testPerform_SUCCESS001() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
@@ -74,7 +74,7 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive001_failure <br/>
+	 * <p><b>CodeCategoryInactive001_failure </b></p>
 	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * input = null <br/>
@@ -85,7 +85,7 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE001() {
+	public void testPerform_FAILURE001() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
@@ -108,11 +108,11 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive002_failure <br/>
+	 * <p><b>CodeCategoryInactive002_failure </b></p>
 	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * input.id = null <br/>
-	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";
+	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";<br/>
 	 * 戻り値：<br/>
 	 * result.status = BAD_REQUEST_VALUE <br/>
 	 * output = null <br/>
@@ -120,8 +120,7 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE002() {
-		Long ownerId = 1L;
+	public void testPerform_FAILURE002() {
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
 		input = new CodeObj();
@@ -143,7 +142,7 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive003_failure <br/>
+	 * <p><b>CodeCategoryInactive003_failure </b></p>
 	 * inputが文字列の場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * input.id = aaaaaaaaaaaaa <br/>
@@ -155,8 +154,7 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE003() {
-		Long ownerId = 1L;
+	public void testPerform_FAILURE003() {
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
 		input = new CodeObj();
@@ -178,7 +176,7 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive004_failure <br/>
+	 * <p><b>CodeCategoryInactive004_failure </b></p>
 	 * lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * input.id = 1L <br/>
@@ -190,9 +188,8 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE004() {
+	public void testPerform_FAILURE004() {
 		Long ownerId = 1L;
-		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
 		input = new CodeObj();
 		input.setId(String.valueOf(ownerId));
@@ -213,7 +210,7 @@ public class CodeDeleteActionTest {
 	}
 
 	/**
-	 * CodeCategoryInactive005_failure <br/>
+	 * <p><b>CodeCategoryInactive005_failure </b></p>
 	 * 削除処理に失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br/>
 	 * 入力値：<br/>
 	 * input.id = 1L <br/>
@@ -225,7 +222,7 @@ public class CodeDeleteActionTest {
 	 * diffResultList = 0 <br/>
 	 */
 	@Test
-	public void testPerfofrm_FAILURE005() {
+	public void testPerform_FAILURE005() {
 		Long ownerId = 1L;
 		String lastUpdateTs = "2015-01-01 00:00:00.000000";
 
