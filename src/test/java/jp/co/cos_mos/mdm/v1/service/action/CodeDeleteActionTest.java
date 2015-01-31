@@ -40,15 +40,15 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive001_success</b></p>
-	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br/>
-	 * 入力値：<br/>
-	 * ownerId = 1L <br/>
-	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br/>
-	 * 戻り値：<br/>
-	 * result.status = success <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * コードカテゴリーを無効にし、再検索を行うことを確認する。 <br>
+	 * 入力値：<br>
+	 * ownerId = 1L <br>
+	 * lastUpdateTs = "2015-01-01 00:00:00.000000" <br>
+	 * 戻り値：<br>
+	 * result.status = success <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_SUCCESS001() {
@@ -75,14 +75,14 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive001_failure </b></p>
-	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * input = null <br/>
-	 * 戻り値：<br/>
-	 * result.status = BAD_REQUEST_VALUE <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * input = null <br>
+	 * 戻り値：<br>
+	 * result.status = BAD_REQUEST_VALUE <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_FAILURE001() {
@@ -109,15 +109,15 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive002_failure </b></p>
-	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * input.id = null <br/>
-	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";<br/>
-	 * 戻り値：<br/>
-	 * result.status = BAD_REQUEST_VALUE <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * inputがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * input.id = null <br>
+	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";<br>
+	 * 戻り値：<br>
+	 * result.status = BAD_REQUEST_VALUE <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_FAILURE002() {
@@ -143,15 +143,15 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive003_failure </b></p>
-	 * inputが文字列の場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * input.id = aaaaaaaaaaaaa <br/>
+	 * inputが文字列の場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * input.id = aaaaaaaaaaaaa <br>
 	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";
-	 * 戻り値：<br/>
-	 * result.status = BAD_REQUEST_VALUE <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * 戻り値：<br>
+	 * result.status = BAD_REQUEST_VALUE <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_FAILURE003() {
@@ -177,15 +177,15 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive004_failure </b></p>
-	 * lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * input.id = 1L <br/>
+	 * lastUpdateTsがnullの場合、BAD_REQUEST_VALUEが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * input.id = 1L <br>
 	 * input.lastUpdateTs = null;
-	 * 戻り値：<br/>
-	 * result.status = BAD_REQUEST_VALUE <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * 戻り値：<br>
+	 * result.status = BAD_REQUEST_VALUE <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_FAILURE004() {
@@ -211,15 +211,15 @@ public class CodeDeleteActionTest {
 
 	/**
 	 * <p><b>CodeCategoryInactive005_failure </b></p>
-	 * 削除処理に失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br/>
-	 * 入力値：<br/>
-	 * input.id = 1L <br/>
+	 * 削除処理に失敗した場合、EXCEPTION_CONFLICTが返ってくることを確認する。 <br>
+	 * 入力値：<br>
+	 * input.id = 1L <br>
 	 * input.lastUpdateTs = "2015-01-01 00:00:00.000000";
-	 * 戻り値：<br/>
-	 * result.status = EXCEPTION_CONFLICT <br/>
-	 * output = null <br/>
-	 * count = 0 <br/>
-	 * diffResultList = 0 <br/>
+	 * 戻り値：<br>
+	 * result.status = EXCEPTION_CONFLICT <br>
+	 * output = null <br>
+	 * count = 0 <br>
+	 * diffResultList = 0 <br>
 	 */
 	@Test
 	public void testPerform_FAILURE005() {
