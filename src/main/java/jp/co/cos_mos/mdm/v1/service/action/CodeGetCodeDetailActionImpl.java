@@ -20,11 +20,11 @@ import java.util.List;
 /**
  *  2015/1/30
  *
- * @author ïüìáå\óC
+ * @author Á¶èÂ≥∂Âú≠‰Ωë
  *
  */
 public class CodeGetCodeDetailActionImpl implements CodeGetCodeDetailAction {
-	 ;
+
 
 	@Autowired
 	private CodeMapper codeMapper;
@@ -40,6 +40,8 @@ public class CodeGetCodeDetailActionImpl implements CodeGetCodeDetailAction {
 		if (result.getStatus() != Status.SUCCESS) {
 			response.setResult(result);
 			return response;
+		} else {
+			response.setResult(result);
 		}
 
 
@@ -95,8 +97,7 @@ public class CodeGetCodeDetailActionImpl implements CodeGetCodeDetailAction {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
 		}
 
-		if (StringUtils.isEmpty(criteria.getCode())
-				|| !StringUtils.isNumeric(criteria.getCode())) {
+		if (StringUtils.isEmpty(criteria.getCode())) {
 			result.setStatus(Status.BAD_REQUEST_VALUE);
 		}
 		return result;
